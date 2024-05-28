@@ -1,0 +1,100 @@
+#gin 环境 debug | test | release
+mode: test
+localCache:
+  enable: true
+  lifeWindow: 60 #缓存活跃时间,缓存对象被认为不活跃,但并不会删除对象 [单位秒
+  cleanWindow: 1 #CleanWindow后，会删除被认为不活跃的对象 [单位秒]
+  mardMaxCacheSize: 2048 #设置缓存最大值(单位为MB),0表示无限制
+bind: ':3013'
+name: &name gin-api-http
+gray:
+  version: v1.1.1
+  serviceName: *name
+  enable: true
+version: '1.0'
+area: ucl #混合云
+monitor:
+  enable: true
+  #host: 127.0.0.1 #只允许本机访问,注释可所有主机访问、docker容器中需注释
+  host:
+  port: 6013
+gobPath: &logpath /apps/log/app/gin-api-http
+xLogger:
+  serviceName: *name
+  level: debug
+  LevelColor: true
+  format: plain
+  #  LevelColor: false
+  #  format: json
+  stdout: false
+  file:
+    filename: /apps/log/app/gin-api-http/app.log
+    maxSize: '500'
+    maxDays: 3
+    compress: true
+  sentryDSN: 'https://3acd242a189a4a0f8b01526ee986875e@o98199.ingest.sentry.io/6292293'
+xTrace:
+  SamplerType: const
+  SamplerParam: 1
+  ReporterLocalAgentHostPort: '127.0.0.1:6831'
+database:
+  goodsCenter:
+    dsn: >-
+      root:passw0rd@tcp(127.0.0.1:3306)/db_goods_center?charset=utf8mb4&parseTime=True&loc=Local
+    maxIdle: 10
+    maxOpen: 200
+    maxLifetime: 3
+  camexam:
+    dsn: >-
+      root:passw0rd@tcp(127.0.0.1:3306)/healthy_primary?charset=utf8mb4&parseTime=True&loc=Local
+    maxIdle: 10
+    maxOpen: 200
+    maxLifetime: 3
+  # cs_user 的 db_token库
+  db_token:
+    dsn: >-
+      root:abcd1234@tcp(192.168.28.75:3306)/db_token?charset=utf8mb4&parseTime=True&loc=Local
+    maxIdle: 10
+    maxOpen: 200
+    maxLifetime: 3
+xRedis:
+  addr: '127.0.0.1:6379'
+  password: 'QNaRce3zgcHV_4JI'
+  db: 7
+  maxRetries: 2
+  poolSize: 100
+  minIdleConns: 10
+  metricsEnable: true
+#asynq 配置文件
+asynq:
+  # asynq monitoring 监控dashbord服务端口
+  port: 7013
+  #是否开启 数据面板服务
+  enable: false
+  #是否开启调度注册; 当多台机器时会重复注册，导致任务执行多次；多个机器只需要开启一台服务的注册即可；执行任务时分布式的
+  enableRegisterSched: false
+  #动态调度任务 配置文件路径
+  periodicTaskConfig: '/apps/conf/gin-api-http/periodic_task_config.yaml'
+  # 是否开启动态任务调度 注册,分布式服务保持一台可以调度即可； 否则出现重复任务
+  enablePeriodicTaskSched: true
+appStoreConnectApi:
+  host: 'https://api.appstoreconnect.apple.com'
+  timeout: 120
+appStoreServerApi:
+  host: 'https://api.storekit.itunes.apple.com'
+  timeout: 120
+gpConnectApi:
+  host: 'https://www.googleapis.com' #'https://androidpublisher.googleapis.com'
+  prefix:
+  timeout: 120
+dbProxyApi:
+  host: 'http://192.168.72.92:8033' #local环境
+  timeout: 30
+gpConnectApiTokenURL: 'https://oauth2.googleapis.com/token'
+# 导入国家地区文件数据
+importTerritoryCodeFile: '/apps/conf/gin-api-http/territory.xlsx'
+#sentinel配置文件地址
+sentinelConfFile: '/apps/conf/gin-api-http/sentinel.yaml'
+
+
+

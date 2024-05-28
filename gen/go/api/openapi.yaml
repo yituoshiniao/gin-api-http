@@ -1,0 +1,688 @@
+openapi: 3.0.1
+info:
+  contact: {}
+  description: gin-http服务文档
+  title: gin-http API
+  version: "1.0"
+servers:
+- url: http://127.0.0.1:3013/goodsCenterLogic
+paths:
+  /asynq/v1/addAggTask:
+    get:
+      description: asynq-添加聚合任务
+      parameters:
+      - description: "环境变量,默认线上; sandbox 沙箱环境, production 生产环境"
+        in: query
+        name: env
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.GroupDeliveryTaskAddResponse'
+          description: 请求成功
+      summary: asynq-添加聚合任务
+      tags:
+      - asynq
+  /asynq/v1/addTask:
+    get:
+      description: "asynq-异步任务,可通过： http://localhost:7013/monitoring/ 查看dashbord报表"
+      parameters:
+      - description: "环境变量,默认线上; sandbox 沙箱环境, production 生产环境"
+        in: query
+        name: env
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.AsynqEmailDeliveryTaskAddResponse'
+          description: 请求成功
+      summary: asynq-add异步任务
+      tags:
+      - asynq
+  /auth/v1/token/generate:
+    get:
+      description: jwt-token生成及校验
+      parameters:
+      - description: "环境变量,默认线上; sandbox 沙箱环境, production 生产环境"
+        in: query
+        name: env
+        schema:
+          type: string
+      - description: UserID 用户id
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+      - description: UserName 用户名  example:张三
+        in: query
+        name: userName
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.AppJwtTokenSwgResponse'
+          description: 请求成功
+      summary: jwt-token生成及校验
+      tags:
+      - auth
+  /v1/common/generateId:
+    get:
+      description: 生成id-描述
+      parameters:
+      - description: 认证信息 eg:xxxx-xxxx-xxxx-xxx
+        in: header
+        name: Authorization
+        schema:
+          type: string
+      - description: 生成id数量 1-1000
+        in: query
+        name: num
+        required: true
+        schema:
+          type: integer
+      - description: ID
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_http_servicev1.HttpGenerateIDResponse'
+          description: 请求成功
+      summary: 雪花ID生成
+      tags:
+      - 公共接口
+  /v1/exampleGet:
+    get:
+      description: get接口示例
+      parameters:
+      - description: create_time
+        in: query
+        name: create_time
+        required: true
+        schema:
+          type: integer
+      - description: query_id
+        in: query
+        name: query_id
+        required: true
+        schema:
+          type: string
+      - description: user_id 用户id
+        in: query
+        name: user_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.ExampleGetResponse'
+          description: 请求成功
+      summary: get接口示例
+      tags:
+      - Example
+  /v1/exampleGetOne:
+    get:
+      description: getOne接口示例
+      parameters:
+      - description: create_time
+        in: query
+        name: create_time
+        required: true
+        schema:
+          type: integer
+      - description: query_id
+        in: query
+        name: query_id
+        required: true
+        schema:
+          type: string
+      - description: user_id 用户id
+        in: query
+        name: user_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.ExampleGetOneResponse'
+          description: 请求成功
+      summary: getOne接口示例
+      tags:
+      - Example
+  /v1/examplePost:
+    post:
+      description: "\nios购买项类型 <a href=\"https://developer.apple.com/documentation/appstoreconnectapi/list_all_in-app_purchases_for_an_app\"\
+        > 详情</a> </br> \n\n\nandroid订阅 <a href=\"https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/list?hl=zh-cn\"\
+        > 详情</a> </br> \n\nandroid非订阅<a href=\"https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts/list?hl=zh-cn\"\
+        > 详情</a> </br> \n\nandroid订阅产品的类型<a href=\"https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts?hl=zh-cn#PurchaseType\"\
+        > 详情</a> </br>"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/internal_api_dto.ExamplePostRequest'
+        description: 请求参数
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.ExamplePostResponse'
+          description: 请求成功
+          headers:
+            Token:
+              description: token
+              schema:
+                type: string
+            Token2:
+              description: token2
+              schema:
+                type: string
+            Location:
+              description: /entity/1
+              schema:
+                type: string
+      summary: post 接口 示例
+      tags:
+      - Example
+      x-codegen-request-body-name: body
+  /v1/userScore/add:
+    post:
+      description: gorm 添加数据
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_http.ResponseData'
+          description: 请求成功
+      summary: 添加数据
+      tags:
+      - user_score
+  /v1/userScore/del:
+    post:
+      description: gorm 删除数据
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_http.ResponseData'
+          description: 请求成功
+      summary: 删除数据
+      tags:
+      - user_score
+  /v1/userScore/find:
+    get:
+      description: gorm 查询一条数据
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.UserScoreFindResponse'
+          description: 请求成功
+      summary: 查询一条数据
+      tags:
+      - user_score
+  /v1/userScore/list:
+    get:
+      description: gorm 查询列表
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_dto.UserScoreListResponse'
+          description: 请求成功
+      summary: 查询列表
+      tags:
+      - user_score
+  /v1/userScore/update:
+    post:
+      description: gorm 更新数据
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/internal_api_http.ResponseData'
+          description: 请求成功
+      summary: 更新数据
+      tags:
+      - user_score
+components:
+  schemas:
+    internal_api_dto.AppJwtTokenResponse:
+      example:
+        jwtPayload: "{}"
+        token: token
+      properties:
+        jwtPayload:
+          allOf:
+          - $ref: '#/components/schemas/internal_module_auth_application_service.AuthPayload'
+          description: token payload 信息
+          type: object
+        token:
+          description: Token jwt token
+          type: string
+      type: object
+    internal_api_dto.AppJwtTokenSwgResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+          jwtPayload: "{}"
+          token: token
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          $ref: '#/components/schemas/internal_api_dto.AppJwtTokenResponse'
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.AsynqEmailDeliveryTaskAddResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data: "{}"
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          description: 数据data
+          type: object
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.ExampleGetOneResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+          country: country
+          vip_info: 0
+          user_id: user_id
+          last_login: last_login
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          $ref: '#/components/schemas/internal_api_dto.UserPortraitData'
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.ExampleGetResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+          country: country
+          vip_info: 0
+          user_id: user_id
+          last_login: last_login
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          $ref: '#/components/schemas/internal_api_dto.UserPortraitData'
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.ExamplePostRequest:
+      properties:
+        Title:
+          description: 标题
+          type: string
+        app_id:
+          description: 应用id
+          type: string
+        question:
+          description: 问题
+          type: string
+      required:
+      - Title
+      - app_id
+      - question
+      type: object
+    internal_api_dto.ExamplePostResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+          country: country
+          vip_info: 0
+          user_id: user_id
+          last_login: last_login
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          $ref: '#/components/schemas/internal_api_dto.UserPortraitData'
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.GroupDeliveryTaskAddResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data: "{}"
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          description: 数据data
+          type: object
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.UserPortraitData:
+      example:
+        country: country
+        vip_info: 0
+        user_id: user_id
+        last_login: last_login
+      properties:
+        country:
+          description: 国家
+          type: string
+        last_login:
+          description: 上次登陆时间
+          type: string
+        user_id:
+          description: 用户id
+          type: string
+        vip_info:
+          description: 是否为VIP，0/1
+          type: integer
+      type: object
+    internal_api_dto.UserScoreFindResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+          score: 1
+          update_time: 5
+          create_time: 0
+          user_id: user_id
+          id: 6
+          zero_timestamp: 2
+          score_result: 5
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          $ref: '#/components/schemas/internal_module_mockv2_application_entity.UserScore'
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_dto.UserScoreListResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+        - score: 1
+          update_time: 5
+          create_time: 0
+          user_id: user_id
+          id: 6
+          zero_timestamp: 2
+          score_result: 5
+        - score: 1
+          update_time: 5
+          create_time: 0
+          user_id: user_id
+          id: 6
+          zero_timestamp: 2
+          score_result: 5
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/internal_module_mockv2_application_entity.UserScore'
+          type: array
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_api_http.ResponseData:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data: "{}"
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          description: 数据data
+          type: object
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+    internal_module_auth_application_service.AuthPayload:
+      properties:
+        aud:
+          type: string
+        audience:
+          description: Audience 当前时间
+          type: integer
+        exp:
+          type: integer
+        expiresAt:
+          description: ExpiresAt  token 过期时间
+          type: integer
+        iat:
+          type: integer
+        iss:
+          type: string
+        jti:
+          type: string
+        nbf:
+          type: integer
+        sub:
+          type: string
+        uid:
+          description: UID 用户id
+          type: string
+        username:
+          description: Username 用户名
+          type: string
+      type: object
+    internal_module_mockv2_application_entity.UserScore:
+      example:
+        score: 1
+        update_time: 5
+        create_time: 0
+        user_id: user_id
+        id: 6
+        zero_timestamp: 2
+        score_result: 5
+      properties:
+        create_time:
+          type: integer
+        id:
+          type: integer
+        score:
+          type: integer
+        score_result:
+          type: integer
+        update_time:
+          type: integer
+        user_id:
+          type: string
+        zero_timestamp:
+          type: integer
+      type: object
+    internal_api_http_servicev1.HttpGenerateIDResponse:
+      example:
+        msg: success
+        traceId: traceId
+        code: 1
+        data:
+        - data
+        - data
+      properties:
+        code:
+          description: "code:  0 成功; 非0失败;"
+          example: 1
+          type: integer
+        data:
+          description: 生成id数组
+          items:
+            type: string
+          type: array
+        msg:
+          description: 错误消息
+          example: success
+          type: string
+        traceId:
+          description: traceId
+          type: string
+      required:
+      - code
+      - data
+      - msg
+      - traceId
+      type: object
+x-original-swagger-version: "2.0"

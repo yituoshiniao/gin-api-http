@@ -1,0 +1,13 @@
+.idea
+internal/app/main
+logs/
+#swag-doc/*
+config/env.yaml
+config/*_local.yaml
+go.sum
+#dao
+.vscode
+test
+#gen/go
+gen/lua
+gen/html2
