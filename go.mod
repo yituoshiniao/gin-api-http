@@ -41,7 +41,6 @@ require (
 	github.com/spf13/viper v1.7.1
 	github.com/swaggo/files v1.0.1
 	github.com/swaggo/gin-swagger v1.6.0
-	github.com/swaggo/swag v1.16.3
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	github.com/yituoshiniao/kit v0.3.6
 	github.com/yituoshiniao/openapi-client-go v0.0.0-20240510083236-d6f077500130
@@ -110,6 +109,7 @@ require (
 	github.com/spf13/jwalterweatherman v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
+	github.com/swaggo/swag v1.16.3 // indirect
 	github.com/t-tiger/gorm-bulk-insert/v2 v2.1.0 // indirect
 	github.com/tchap/zapext v1.0.0 // indirect
 	github.com/tinylib/msgp v1.1.6 // indirect

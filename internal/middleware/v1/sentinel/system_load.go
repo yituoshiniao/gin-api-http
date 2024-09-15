@@ -67,7 +67,7 @@ func SystemLoad() gin.HandlerFunc {
 		)
 
 		if blockError != nil {
-			// c.AbortWithStatus(http.StatusTooManyRequests) //直接返回429 code
+			// c.AbortWithStatus(handler.StatusTooManyRequests) //直接返回429 code
 			loadInfo, err := load.Avg()
 			if err != nil {
 				xlog.S(ctx).Warnw("load.Avg-错误信息", "err", err)

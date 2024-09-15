@@ -3,14 +3,14 @@ package v1
 import (
 	"net/http"
 
-	asynq "github.com/yituoshiniao/gin-api-http/internal/api/http/asynqdemo"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http/auth"
+	asynq "github.com/yituoshiniao/gin-api-http/internal/handler/asynqdemo"
+	"github.com/yituoshiniao/gin-api-http/internal/handler/auth"
 	"github.com/yituoshiniao/gin-api-http/internal/middleware/v1/sentinel"
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/http/servicev1"
 	"github.com/yituoshiniao/gin-api-http/internal/conn"
+	"github.com/yituoshiniao/gin-api-http/internal/handler/servicev1"
 )
 
 type GoodsCenterRouter struct {

@@ -37,6 +37,7 @@ type AppleProductPrice struct {
 	FirstPriceDetail             string    `gorm:"column:first_price_detail;type:varchar(500);not null;comment:首单优惠详情(订阅项)" json:"firstPriceDetail"`                                                                                                                                            // 首单优惠详情(订阅项)
 	CreateTime                   time.Time `gorm:"column:create_time;type:datetime;not null;uniqueIndex:uk_product_id_channel_territory_create_time,priority:4;default:CURRENT_TIMESTAMP;comment:创建时间" json:"createTime"`                                                                       // 创建时间
 	UpdateTime                   time.Time `gorm:"column:update_time;type:datetime;not null;comment:更新时间" json:"updateTime"`                                                                                                                                                                    // 更新时间
+	OfferKeyDetail               string    `gorm:"column:offer_key_detail;type:varchar(1000);not null;comment:promotion优惠详情" json:"offerKeyDetail"`                                                                                                                                             // promotion优惠详情
 }
 
 // TableName AppleProductPrice's table name

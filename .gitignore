@@ -2,7 +2,6 @@
 internal/app/main
 logs/
 #swag-doc/*
-config/env.yaml
 config/*_local.yaml
 go.sum
 #dao

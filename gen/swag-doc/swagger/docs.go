@@ -136,7 +136,7 @@ const docTemplate = `{
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http_servicev1.HttpGenerateIDResponse"
+                            "$ref": "#/definitions/internal_handler_servicev1.HttpGenerateIDResponse"
                         }
                     }
                 }
@@ -281,7 +281,7 @@ const docTemplate = `{
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -298,7 +298,7 @@ const docTemplate = `{
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -349,7 +349,7 @@ const docTemplate = `{
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -644,7 +644,7 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_api_http.ResponseData": {
+        "internal_handler.ResponseData": {
             "type": "object",
             "required": [
                 "code",
@@ -740,7 +740,7 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_api_http_servicev1.HttpGenerateIDResponse": {
+        "internal_handler_servicev1.HttpGenerateIDResponse": {
             "type": "object",
             "required": [
                 "code",
@@ -780,8 +780,8 @@ var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "127.0.0.1:3013",
 	BasePath:         "/goodsCenterLogic",
-	Schemes:          []string{"http"},
-	Title:            "gin-http API",
+	Schemes:          []string{"handler"},
+	Title:            "gin-handler API",
 	Description:      "gin-http服务文档",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

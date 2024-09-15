@@ -6,19 +6,19 @@ import (
 	"github.com/yituoshiniao/kit/xlog"
 
 	"github.com/yituoshiniao/gin-api-http/internal/api/dto"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/module/auth/application/service"
-	"github.com/yituoshiniao/gin-api-http/internal/util"
+	"github.com/yituoshiniao/gin-api-http/internal/pkg"
 )
 
 type AppJwtTokenSrv struct {
-	response    *http.Response
+	response    *handler.Response
 	redis       *redis.Client
 	jwtTokenSrv *service.JwtTokenSrv
 }
 
 func NewAppJwtTokenSrv(
-	response *http.Response,
+	response *handler.Response,
 	redis *redis.Client,
 	jwtTokenSrv *service.JwtTokenSrv,
 
@@ -43,8 +43,8 @@ func (a *AppJwtTokenSrv) Handle(c *gin.Context) {
 
 	req := dto.AppJwtTokenRequest{}
 	if err := c.ShouldBindQuery(&req); err != nil {
-		xlog.S(ctx).Errorw("参数绑定错误", "err", util.TransError(err))
-		a.response.Error(c, util.TransErrorStr(err), nil)
+		xlog.S(ctx).Errorw("参数绑定错误", "err", pkg.TransError(err))
+		a.response.Error(c, pkg.TransErrorStr(err), nil)
 		return
 	}
 

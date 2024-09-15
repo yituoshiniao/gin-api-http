@@ -44,7 +44,7 @@ func FlowThrottling(threshold float64, statIntervalInMs uint32, maxQueueingTimeM
 		)
 
 		if blockError != nil {
-			// c.AbortWithStatus(http.StatusTooManyRequests) //直接返回429 code
+			// c.AbortWithStatus(handler.StatusTooManyRequests) //直接返回429 code
 			xlog.S(ctx).Warnw("flowLoadTtl-错误信息", "err", blockError.Error(), "rule", rule)
 			c.JSON(http.StatusTooManyRequests, getSentinelResponse(ctx, traceID))
 			c.Abort()

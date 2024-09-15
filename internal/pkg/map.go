@@ -1,4 +1,4 @@
-package util
+package pkg
 
 import (
 	"net/url"
@@ -11,5 +11,5 @@ func ValuesDelKey(values url.Values, key ...string) {
 		}
 	}
 
-	//return true
+	// return true
 }

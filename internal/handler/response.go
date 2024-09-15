@@ -1,4 +1,4 @@
-package http
+package handler
 
 import (
 	"fmt"
@@ -34,7 +34,7 @@ func NewResponse(
 }
 
 func (r *Response) Success(c *gin.Context, data interface{}) {
-	// c.JSON(http.StatusOK, data)
+	// c.JSON(handler.StatusOK, data)
 	c.JSON(http.StatusOK, gin.H{
 		"code":    0,
 		"msg":     "success",
@@ -125,7 +125,7 @@ func (r *Response) Process(c *gin.Context, resp interface{}, err error) {
 	if err != nil {
 		r.Error(c, r.Msg(c, err), resp)
 	} else {
-		// c.JSON(http.StatusOK, resp)
+		// c.JSON(handler.StatusOK, resp)
 		r.Success(c, resp)
 	}
 }

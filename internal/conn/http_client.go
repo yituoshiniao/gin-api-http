@@ -7,7 +7,7 @@ import (
 	"github.com/yituoshiniao/kit/xhttp/defaultclient"
 )
 
-// HttpClient GO默认 http.Client
+// HttpClient GO默认 handler.Client
 type HttpClient struct {
 	*http.Client
 }

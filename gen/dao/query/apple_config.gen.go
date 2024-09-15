@@ -32,6 +32,7 @@ func newAppleConfig(db *gorm.DB, opts ...gen.DOOption) appleConfig {
 	_appleConfig.KeyFile = field.NewString(tableName, "key_file")
 	_appleConfig.PartnerKey = field.NewString(tableName, "partner_key")
 	_appleConfig.AppID = field.NewInt64(tableName, "app_id")
+	_appleConfig.Bid = field.NewString(tableName, "bid")
 	_appleConfig.SubscriptionGroupsID = field.NewInt32(tableName, "subscription_groups_id")
 	_appleConfig.IssuerID = field.NewString(tableName, "issuer_id")
 	_appleConfig.Audience = field.NewString(tableName, "audience")
@@ -56,6 +57,7 @@ type appleConfig struct {
 	KeyFile              field.String // pem 秘钥路径
 	PartnerKey           field.String // 计算签名key
 	AppID                field.Int64  // appid
+	Bid                  field.String // 应用bid
 	SubscriptionGroupsID field.Int32  // 订阅组id
 	IssuerID             field.String // 苹果后台 IssuerID
 	Audience             field.String // appstoreconnect-v1
@@ -86,6 +88,7 @@ func (a *appleConfig) updateTableName(table string) *appleConfig {
 	a.KeyFile = field.NewString(table, "key_file")
 	a.PartnerKey = field.NewString(table, "partner_key")
 	a.AppID = field.NewInt64(table, "app_id")
+	a.Bid = field.NewString(table, "bid")
 	a.SubscriptionGroupsID = field.NewInt32(table, "subscription_groups_id")
 	a.IssuerID = field.NewString(table, "issuer_id")
 	a.Audience = field.NewString(table, "audience")
@@ -121,12 +124,13 @@ func (a *appleConfig) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (a *appleConfig) fillFieldMap() {
-	a.fieldMap = make(map[string]field.Expr, 14)
+	a.fieldMap = make(map[string]field.Expr, 15)
 	a.fieldMap["id"] = a.ID
 	a.fieldMap["channel"] = a.Channel
 	a.fieldMap["key_file"] = a.KeyFile
 	a.fieldMap["partner_key"] = a.PartnerKey
 	a.fieldMap["app_id"] = a.AppID
+	a.fieldMap["bid"] = a.Bid
 	a.fieldMap["subscription_groups_id"] = a.SubscriptionGroupsID
 	a.fieldMap["issuer_id"] = a.IssuerID
 	a.fieldMap["audience"] = a.Audience

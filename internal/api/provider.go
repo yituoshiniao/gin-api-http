@@ -2,18 +2,18 @@ package api
 
 import (
 	"github.com/google/wire"
+	"github.com/yituoshiniao/gin-api-http/internal/app/cron"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/cron"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http/asynqdemo"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http/auth"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http/servicev1"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
+	"github.com/yituoshiniao/gin-api-http/internal/handler/asynqdemo"
+	"github.com/yituoshiniao/gin-api-http/internal/handler/auth"
+	"github.com/yituoshiniao/gin-api-http/internal/handler/servicev1"
 	"github.com/yituoshiniao/gin-api-http/internal/task"
 )
 
 var WireSet = wire.NewSet(
 	cron.NewEnter,
-	http.NewResponse,
+	handler.NewResponse,
 	task.NewTaskCron,
 	servicev1.NewGenerateIDSrv,
 	servicev1.NewTestSrv,

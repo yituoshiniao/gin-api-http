@@ -1,11 +1,11 @@
 {
     "schemes": [
-        "http"
+        "handler"
     ],
     "swagger": "2.0",
     "info": {
         "description": "gin-http服务文档",
-        "title": "gin-http API",
+        "title": "gin-handler API",
         "contact": {},
         "version": "1.0"
     },
@@ -133,7 +133,7 @@
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http_servicev1.HttpGenerateIDResponse"
+                            "$ref": "#/definitions/internal_handler_servicev1.HttpGenerateIDResponse"
                         }
                     }
                 }
@@ -278,7 +278,7 @@
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -295,7 +295,7 @@
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -346,7 +346,7 @@
                     "200": {
                         "description": "请求成功",
                         "schema": {
-                            "$ref": "#/definitions/internal_api_http.ResponseData"
+                            "$ref": "#/definitions/internal_handler.ResponseData"
                         }
                     }
                 }
@@ -641,7 +641,7 @@
                 }
             }
         },
-        "internal_api_http.ResponseData": {
+        "internal_handler.ResponseData": {
             "type": "object",
             "required": [
                 "code",
@@ -737,7 +737,7 @@
                 }
             }
         },
-        "internal_api_http_servicev1.HttpGenerateIDResponse": {
+        "internal_handler_servicev1.HttpGenerateIDResponse": {
             "type": "object",
             "required": [
                 "code",

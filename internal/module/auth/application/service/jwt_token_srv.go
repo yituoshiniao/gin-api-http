@@ -9,16 +9,16 @@ import (
 	"github.com/pkg/errors"
 	"github.com/yituoshiniao/kit/xlog"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 )
 
 type JwtTokenSrv struct {
-	response *http.Response
+	response *handler.Response
 	redis    *redis.Client
 }
 
 func NewJwtTokenSrv(
-	response *http.Response,
+	response *handler.Response,
 	redis *redis.Client,
 
 ) *JwtTokenSrv {

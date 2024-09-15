@@ -1,5 +1,5 @@
 /*
-gin-http API
+gin-handler API
 
 gin-http服务文档
 
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the gin-http API API v1.0
+// APIClient manages communication with the gin-handler API API v1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -65,7 +65,7 @@ type service struct {
 }
 
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
-// optionally a custom http.Client to allow for advanced features such as caching.
+// optionally a custom handler.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
 	if cfg.HTTPClient == nil {
 		cfg.HTTPClient = http.DefaultClient

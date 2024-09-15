@@ -11,20 +11,20 @@ import (
 	"github.com/yituoshiniao/kit/xtask"
 
 	"github.com/yituoshiniao/gin-api-http/internal/api/dto"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/task/queue"
 )
 
 type TaskGroupProducer struct {
 	asynqClient            *asynq.Client
-	response               *http.Response
+	response               *handler.Response
 	emailDeliveryTask      *queue.EmailDeliveryTask
 	groupEmailDeliveryTask *queue.GroupEmailDeliveryTask
 }
 
 func NewTaskGroupProducer(
 	asynqClient *asynq.Client,
-	response *http.Response,
+	response *handler.Response,
 	emailDeliveryTask *queue.EmailDeliveryTask,
 	groupEmailDeliveryTask *queue.GroupEmailDeliveryTask,
 ) *TaskGroupProducer {

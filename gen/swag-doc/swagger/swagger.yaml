@@ -211,7 +211,7 @@ definitions:
     - msg
     - traceId
     type: object
-  internal_api_http.ResponseData:
+  internal_handler.ResponseData:
     properties:
       code:
         description: 'code:  0 成功; 非0失败;'
@@ -278,7 +278,7 @@ definitions:
       zero_timestamp:
         type: integer
     type: object
-  internal_api_http_servicev1.HttpGenerateIDResponse:
+  internal_handler_servicev1.HttpGenerateIDResponse:
     properties:
       code:
         description: 'code:  0 成功; 非0失败;'
@@ -306,7 +306,7 @@ host: 127.0.0.1:3013
 info:
   contact: {}
   description: gin-http服务文档
-  title: gin-http API
+  title: gin-handler API
   version: "1.0"
 paths:
   /asynq/v1/addAggTask:
@@ -388,7 +388,7 @@ paths:
         "200":
           description: 请求成功
           schema:
-            $ref: '#/definitions/internal_api_http_servicev1.HttpGenerateIDResponse'
+            $ref: '#/definitions/internal_handler_servicev1.HttpGenerateIDResponse'
       summary: 雪花ID生成
       tags:
       - 公共接口
@@ -489,7 +489,7 @@ paths:
         "200":
           description: 请求成功
           schema:
-            $ref: '#/definitions/internal_api_http.ResponseData'
+            $ref: '#/definitions/internal_handler.ResponseData'
       summary: 添加数据
       tags:
       - user_score
@@ -500,7 +500,7 @@ paths:
         "200":
           description: 请求成功
           schema:
-            $ref: '#/definitions/internal_api_http.ResponseData'
+            $ref: '#/definitions/internal_handler.ResponseData'
       summary: 删除数据
       tags:
       - user_score
@@ -533,10 +533,10 @@ paths:
         "200":
           description: 请求成功
           schema:
-            $ref: '#/definitions/internal_api_http.ResponseData'
+            $ref: '#/definitions/internal_handler.ResponseData'
       summary: 更新数据
       tags:
       - user_score
 schemes:
-- http
+- handler
 swagger: "2.0"

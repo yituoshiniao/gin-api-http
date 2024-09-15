@@ -5,18 +5,18 @@ import (
 	"github.com/yituoshiniao/kit/xlog"
 
 	"github.com/yituoshiniao/gin-api-http/internal/api/dto"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
-	"github.com/yituoshiniao/gin-api-http/internal/util"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
+	"github.com/yituoshiniao/gin-api-http/internal/pkg"
 )
 
 type GenerateIDSrv struct {
-	response    *http.Response
-	snowflakeID *util.SnowflakeID
+	response    *handler.Response
+	snowflakeID *pkg.SnowflakeID
 }
 
 func NewGenerateIDSrv(
-	response *http.Response,
-	snowflakeID *util.SnowflakeID,
+	response *handler.Response,
+	snowflakeID *pkg.SnowflakeID,
 
 ) *GenerateIDSrv {
 	return &GenerateIDSrv{
@@ -27,7 +27,7 @@ func NewGenerateIDSrv(
 
 // HttpGenerateIDResponse ...
 type HttpGenerateIDResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data []string `json:"data"` // 生成id数组
 }
 

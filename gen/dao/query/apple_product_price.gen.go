@@ -52,6 +52,7 @@ func newAppleProductPrice(db *gorm.DB, opts ...gen.DOOption) appleProductPrice {
 	_appleProductPrice.FirstPriceDetail = field.NewString(tableName, "first_price_detail")
 	_appleProductPrice.CreateTime = field.NewTime(tableName, "create_time")
 	_appleProductPrice.UpdateTime = field.NewTime(tableName, "update_time")
+	_appleProductPrice.OfferKeyDetail = field.NewString(tableName, "offer_key_detail")
 
 	_appleProductPrice.fillFieldMap()
 
@@ -87,6 +88,7 @@ type appleProductPrice struct {
 	FirstPriceDetail             field.String  // 首单优惠详情(订阅项)
 	CreateTime                   field.Time    // 创建时间
 	UpdateTime                   field.Time    // 更新时间
+	OfferKeyDetail               field.String  // promotion优惠详情
 
 	fieldMap map[string]field.Expr
 }
@@ -128,6 +130,7 @@ func (a *appleProductPrice) updateTableName(table string) *appleProductPrice {
 	a.FirstPriceDetail = field.NewString(table, "first_price_detail")
 	a.CreateTime = field.NewTime(table, "create_time")
 	a.UpdateTime = field.NewTime(table, "update_time")
+	a.OfferKeyDetail = field.NewString(table, "offer_key_detail")
 
 	a.fillFieldMap()
 
@@ -156,7 +159,7 @@ func (a *appleProductPrice) GetFieldByName(fieldName string) (field.OrderExpr, b
 }
 
 func (a *appleProductPrice) fillFieldMap() {
-	a.fieldMap = make(map[string]field.Expr, 25)
+	a.fieldMap = make(map[string]field.Expr, 26)
 	a.fieldMap["id"] = a.ID
 	a.fieldMap["number"] = a.Number
 	a.fieldMap["channel"] = a.Channel
@@ -182,6 +185,7 @@ func (a *appleProductPrice) fillFieldMap() {
 	a.fieldMap["first_price_detail"] = a.FirstPriceDetail
 	a.fieldMap["create_time"] = a.CreateTime
 	a.fieldMap["update_time"] = a.UpdateTime
+	a.fieldMap["offer_key_detail"] = a.OfferKeyDetail
 }
 
 func (a appleProductPrice) clone(db *gorm.DB) appleProductPrice {

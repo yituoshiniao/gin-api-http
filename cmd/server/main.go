@@ -18,7 +18,7 @@ import (
 
 	"github.com/yituoshiniao/gin-api-http/inject"
 	app2 "github.com/yituoshiniao/gin-api-http/internal/app"
-	_ "github.com/yituoshiniao/gin-api-http/internal/util" // 加载翻译
+	_ "github.com/yituoshiniao/gin-api-http/internal/pkg" // 加载翻译
 )
 
 var (
@@ -32,11 +32,11 @@ func init() {
 	flag.StringVar(&commandTaskName, "commandTaskName", "", "命令模式启动需要传入要执行的任务名字,不传就以默认方式启动")
 }
 
-// @title			gin-http API
+// @title			gin-handler API
 // @version		1.0
 // @description	gin-http服务文档
 // @host			127.0.0.1:3013
-// @schemes		http
+// @schemes		handler
 // @BasePath		/goodsCenterLogic
 func main() {
 	err := app2.InitTimeZone()

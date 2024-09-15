@@ -1,6 +1,6 @@
 package dto
 
-import "github.com/yituoshiniao/gin-api-http/internal/api/http"
+import "github.com/yituoshiniao/gin-api-http/internal/handler"
 
 type ExampleGetRequest struct {
 	// user_id 用户id
@@ -12,7 +12,7 @@ type ExampleGetRequest struct {
 }
 
 type ExampleGetResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data UserPortraitData `json:"data"`
 }
 
@@ -26,7 +26,7 @@ type ExampleGetOneRequest struct {
 }
 
 type ExampleGetOneResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data UserPortraitData `json:"data"`
 }
 
@@ -41,7 +41,7 @@ type ExamplePostRequest struct {
 
 // ExamplePostResponse 示例返回
 type ExamplePostResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data UserPortraitData `json:"data"`
 }
 

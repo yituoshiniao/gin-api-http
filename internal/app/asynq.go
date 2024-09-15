@@ -32,7 +32,7 @@ func (e *AsynqEnter) Start(ctx context.Context) (handler *asynqmon.HTTPHandler, 
 		DB:       asynq2.AsynqDB,
 	}
 	h := asynqmon.New(asynqmon.Options{
-		PrometheusAddress: "http://localhost:9090/",
+		PrometheusAddress: "handler://localhost:9090/",
 		RootPath:          "/monitoring", // RootPath specifies the root for asynqmon app
 		RedisConnOpt:      redisClientOpt,
 	})

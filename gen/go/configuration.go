@@ -1,5 +1,5 @@
 /*
-gin-http API
+gin-handler API
 
 gin-http服务文档
 
@@ -41,7 +41,7 @@ var (
 	ContextOperationServerVariables = contextKey("serverOperationVariables")
 )
 
-// BasicAuth provides basic http authentication to a request passed via context using ContextBasicAuth
+// BasicAuth provides basic handler authentication to a request passed via context using ContextBasicAuth
 type BasicAuth struct {
 	UserName string `json:"userName,omitempty"`
 	Password string `json:"password,omitempty"`
@@ -90,7 +90,7 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "http://127.0.0.1:3013/goodsCenterLogic",
+				URL: "handler://127.0.0.1:3013/goodsCenterLogic",
 				Description: "No description provided",
 			},
 		},

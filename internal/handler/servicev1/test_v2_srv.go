@@ -3,17 +3,17 @@ package servicev1
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 )
 
 type TestV2Srv struct {
 	// healthyServiceClient healthyv1.HealthyApiService
-	response *http.Response
+	response *handler.Response
 }
 
 func NewTestV2Srv(
-	// healthyServiceClient healthyv1.HealthyApiService,
-	response *http.Response,
+// healthyServiceClient healthyv1.HealthyApiService,
+	response *handler.Response,
 ) *TestV2Srv {
 	return &TestV2Srv{
 		// healthyServiceClient: healthyServiceClient,

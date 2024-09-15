@@ -9,7 +9,7 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 
 	"github.com/yituoshiniao/gin-api-http/config"
-	_ "github.com/yituoshiniao/gin-api-http/gen/swag-doc/swagger" // swagger 文档
+	// _ "github.com/yituoshiniao/gin-api-handler/gen/swag-doc/swagger" // swagger文档
 	v12 "github.com/yituoshiniao/gin-api-http/internal/middleware/v1"
 	v1 "github.com/yituoshiniao/gin-api-http/internal/router/v1"
 )

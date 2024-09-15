@@ -3,7 +3,7 @@ package dto
 import (
 	"encoding/xml"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/module/auth/application/service"
 )
 
@@ -14,7 +14,7 @@ type ChinaMobileRsaDecodeRequest struct {
 
 // ChinaMobileRsaDecodeResponse 响应
 type ChinaMobileRsaDecodeResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data ChinaMobileRsaDecodeResponseData `json:"data"`
 }
 
@@ -41,7 +41,7 @@ type AppJwtTokenRequest struct {
 }
 
 type AppJwtTokenSwgResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data AppJwtTokenResponse
 }
 

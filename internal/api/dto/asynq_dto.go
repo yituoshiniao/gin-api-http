@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 )
 
 type GroupDeliveryTaskAddRequest struct {
@@ -10,7 +10,7 @@ type GroupDeliveryTaskAddRequest struct {
 }
 
 type GroupDeliveryTaskAddResponse struct {
-	http.ResponseData
+	handler.ResponseData
 }
 
 type AsynqEmailDeliveryTaskAddRequest struct {
@@ -19,5 +19,5 @@ type AsynqEmailDeliveryTaskAddRequest struct {
 }
 
 type AsynqEmailDeliveryTaskAddResponse struct {
-	http.ResponseData
+	handler.ResponseData
 }

@@ -5,9 +5,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/hibiken/asynq"
+	"github.com/yituoshiniao/gin-api-http/internal/app/cron"
 
 	"github.com/yituoshiniao/gin-api-http/config"
-	"github.com/yituoshiniao/gin-api-http/internal/api/cron"
 	"github.com/yituoshiniao/gin-api-http/internal/metrics"
 	"github.com/yituoshiniao/gin-api-http/internal/router"
 	"github.com/yituoshiniao/gin-api-http/internal/task"

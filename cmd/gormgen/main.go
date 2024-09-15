@@ -24,7 +24,8 @@ const (
 )
 
 const (
-	// defaultQueryPath 模型文件存放目录
+	// defaultQueryPath 模型query 文件存放目录, query目录在哪， model 就会在同级别目录
+	// defaultQueryPath = "./dao/query"
 	defaultQueryPath = "./gen/dao/query"
 )
 

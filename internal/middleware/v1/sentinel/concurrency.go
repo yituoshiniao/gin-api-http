@@ -51,7 +51,7 @@ func Concurrency(rateLimit uint32) gin.HandlerFunc {
 		)
 
 		if blockError != nil {
-			// c.AbortWithStatus(http.StatusTooManyRequests) //直接返回429 code
+			// c.AbortWithStatus(handler.StatusTooManyRequests) //直接返回429 code
 			xlog.S(ctx).Warnw("并发Load-错误信息", "err", blockError.Error(), "rule", rule)
 			c.JSON(http.StatusTooManyRequests, getSentinelResponse(ctx, traceID))
 			c.Abort()

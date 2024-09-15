@@ -24,7 +24,7 @@ func (h *Enter) Start(ctx context.Context) error {
 	monitor := h.conf.Monitor
 	http.Handle("/metrics", promhttp.Handler())
 
-	// 执行: go tool pprof --http=:6061 http://localhost:6013/debug/fgprof?seconds=10
+	// 执行: go tool pprof --handler=:6061 http://localhost:6013/debug/fgprof?seconds=10
 	http.Handle("/debug/pprof/fgprof", fgprof.Handler())
 
 	xlog.S(ctx).Infow("metrics", "host", fmt.Sprintf("%s:%d", monitor.Host, monitor.Port))

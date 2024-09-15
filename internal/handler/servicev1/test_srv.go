@@ -11,17 +11,17 @@ import (
 	"github.com/yituoshiniao/kit/xlog"
 	openapiclient "github.com/yituoshiniao/openapi-client-go"
 
-	http "github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/module/mockv2/application/service"
 )
 
 type TestSrv struct {
-	response     *http.Response
+	response     *handler.Response
 	userScoreSrv *service.UserScoreSrv
 }
 
 func NewTestSrv(
-	response *http.Response,
+	response *handler.Response,
 	userScoreSrv *service.UserScoreSrv,
 
 ) *TestSrv {
@@ -72,7 +72,7 @@ func (p *TestSrv) Test(c *gin.Context) {
 
 func concurrency(ctx context.Context, wg *sync.WaitGroup) {
 	// url := "http://localhost:3013/goodsCenterLogic/auth/v1/token/generate"
-	url := "http://localhost:3013/goodsCenterLogic/task/v1/appStore/purchasesPriceTask?channel=cs"
+	url := "handler://localhost:3013/goodsCenterLogic/task/v1/appStore/purchasesPriceTask?channel=cs"
 
 	for i := 0; i < 400; i++ {
 		go func() {
@@ -125,7 +125,7 @@ func NewConfiguration() *openapiclient.Configuration {
 		Debug:         true, // 开启调试日志
 		Servers: openapiclient.ServerConfigurations{
 			{
-				URL:         "http://127.0.0.1:3013/goodsCenterLogic", // 服务端地址配置
+				URL:         "handler://127.0.0.1:3013/goodsCenterLogic", // 服务端地址配置
 				Description: "No description provided",
 			},
 		},

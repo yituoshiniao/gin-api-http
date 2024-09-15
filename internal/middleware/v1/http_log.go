@@ -51,7 +51,7 @@ func HTTPLog(ctx *gin.Context) {
 		zap.String(xlog.MethodPath, newReq.URL.Path),
 	}
 	protoScheme := GetScheme(req)
-	xlog.LE(newReq.Context(), tmpFields).Debug("[http server]接收请求",
+	xlog.LE(newReq.Context(), tmpFields).Debug("[handler server]接收请求",
 		zap.String("Host", req.URL.Host),
 		zap.String("protoScheme", protoScheme),
 		zap.String("Method", req.Method),
@@ -111,15 +111,15 @@ func HTTPLog(ctx *gin.Context) {
 			xlog.S(ctx.Request.Context()).Warnw("ffjson Unmarshal err", "error", err)
 		}
 		fields = append(fields, zap.Reflect("Response", resBody))
-		xlog.LE(ctx.Request.Context(), tmpFields).Check(level, "[http server]响应").Write(fields...)
+		xlog.LE(ctx.Request.Context(), tmpFields).Check(level, "[handler server]响应").Write(fields...)
 	} else {
 		fields = append(fields, zap.String("Response", blw.body.String()))
-		xlog.LE(ctx.Request.Context(), tmpFields).Check(level, "[http server]响应").Write(fields...)
+		xlog.LE(ctx.Request.Context(), tmpFields).Check(level, "[handler server]响应").Write(fields...)
 	}
 }
 
 func GetScheme(r *http.Request) (Url string) {
-	scheme := "http"
+	scheme := "handler"
 	if r.TLS != nil || r.Header.Get("X-Forwarded-Proto") == "https" {
 		scheme = "https"
 	}

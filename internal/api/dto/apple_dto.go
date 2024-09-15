@@ -3,7 +3,7 @@ package dto
 import (
 	"github.com/allegro/bigcache"
 
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 )
 
 type PriceRequest struct {
@@ -108,7 +108,7 @@ type OfferSignRequest struct {
 }
 
 type OfferSignResponse struct {
-	http.ResponseData
+	handler.ResponseData
 }
 type ProductTerritoryPriceInternalResponse struct {
 	ProductId         string `json:"productId"`         // 产品id

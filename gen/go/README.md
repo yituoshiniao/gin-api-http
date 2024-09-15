@@ -28,7 +28,7 @@ import openapi "github.com/yituoshiniao/openapi-client-go"
 To use a proxy, set the environment variable `HTTP_PROXY`:
 
 ```go
-os.Setenv("HTTP_PROXY", "http://proxy_name:proxy_port")
+os.Setenv("HTTP_PROXY", "handler://proxy_name:proxy_port")
 ```
 
 ## Configuration of Server URL

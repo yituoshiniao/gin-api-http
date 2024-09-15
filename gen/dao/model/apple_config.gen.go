@@ -17,6 +17,7 @@ type AppleConfig struct {
 	KeyFile              string    `gorm:"column:key_file;type:varchar(255);not null;comment:pem 秘钥路径" json:"keyFile"`                                                           // pem 秘钥路径
 	PartnerKey           string    `gorm:"column:partner_key;type:varchar(30);not null;comment:计算签名key" json:"partnerKey"`                                                       // 计算签名key
 	AppID                int64     `gorm:"column:app_id;type:bigint;not null;comment:appid" json:"appId"`                                                                        // appid
+	Bid                  string    `gorm:"column:bid;type:varchar(200);not null;comment:应用bid" json:"bid"`                                                                       // 应用bid
 	SubscriptionGroupsID int32     `gorm:"column:subscription_groups_id;type:int;not null;comment:订阅组id" json:"subscriptionGroupsId"`                                            // 订阅组id
 	IssuerID             string    `gorm:"column:issuer_id;type:varchar(100);not null;comment:苹果后台 IssuerID" json:"issuerId"`                                                    // 苹果后台 IssuerID
 	Audience             string    `gorm:"column:audience;type:varchar(30);not null;default:appstoreconnect-v1;comment:appstoreconnect-v1" json:"audience"`                      // appstoreconnect-v1

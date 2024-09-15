@@ -10,19 +10,19 @@ import (
 	"github.com/yituoshiniao/kit/xlog"
 
 	"github.com/yituoshiniao/gin-api-http/internal/api/dto"
-	"github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/task/queue"
 )
 
 type TaskProducer struct {
 	asynqClient       *asynq.Client
-	response          *http.Response
+	response          *handler.Response
 	emailDeliveryTask *queue.EmailDeliveryTask
 }
 
 func NewTaskProducer(
 	asynqClient *asynq.Client,
-	response *http.Response,
+	response *handler.Response,
 	emailDeliveryTask *queue.EmailDeliveryTask,
 ) *TaskProducer {
 	return &TaskProducer{

@@ -46,10 +46,10 @@ func Flow(threshold float64, statIntervalInMs uint32) gin.HandlerFunc {
 		)
 
 		if blockError != nil {
-			// c.AbortWithStatus(http.StatusTooManyRequests) //直接返回429 code
+			// c.AbortWithStatus(handler.StatusTooManyRequests) //直接返回429 code
 			xlog.S(ctx).Warnw("flowLoad-错误信息", "resourceName", resourceName, "err", blockError.Error(), "rule", rule, "traceId", traceID)
 			// SentinelResponse["traceId"] = traceId //并发会导致map写入异常panic
-			// c.JSON(http.StatusTooManyRequests, SentinelResponse)
+			// c.JSON(handler.StatusTooManyRequests, SentinelResponse)
 
 			// c.Header("error_msg", "too many request")
 			c.JSON(http.StatusTooManyRequests, getSentinelResponse(ctx, traceID))

@@ -5,17 +5,17 @@ import (
 	"github.com/yituoshiniao/kit/xlog"
 
 	"github.com/yituoshiniao/gin-api-http/internal/api/dto"
-	http "github.com/yituoshiniao/gin-api-http/internal/api/http"
+	"github.com/yituoshiniao/gin-api-http/internal/handler"
 	"github.com/yituoshiniao/gin-api-http/internal/module/mockv2/application/service"
 )
 
 type UserScoreSrv struct {
-	response     *http.Response
+	response     *handler.Response
 	userScoreSrv *service.UserScoreSrv
 }
 
 func NewUserScoreSrv(
-	response *http.Response,
+	response *handler.Response,
 	userScoreSrv *service.UserScoreSrv,
 
 ) *UserScoreSrv {
@@ -31,7 +31,7 @@ func NewUserScoreSrv(
 //	@Description	gorm 添加数据
 //	@Tags			user_score
 //	@Param			object	query		dto.UserScoreRequest	1	"request"
-//	@Success		200		{object}	http.ResponseData		"请求成功"
+//	@Success		200		{object}	handler.ResponseData	"请求成功"
 //	@Router			/v1/userScore/add [POST]
 func (p *UserScoreSrv) Add(c *gin.Context) {
 	ctx := c.Request.Context()
@@ -57,7 +57,7 @@ func (p *UserScoreSrv) Add(c *gin.Context) {
 //	@Description	gorm 删除数据
 //	@Tags			user_score
 //	@Param			object	query		dto.UserScoreRequest	1	"request"
-//	@Success		200		{object}	http.ResponseData		"请求成功"
+//	@Success		200		{object}	handler.ResponseData	"请求成功"
 //	@Router			/v1/userScore/del [POST]
 func (p *UserScoreSrv) Del(c *gin.Context) {
 	var err error
@@ -75,7 +75,7 @@ func (p *UserScoreSrv) Del(c *gin.Context) {
 //	@Description	gorm 更新数据
 //	@Tags			user_score
 //	@Param			object	query		dto.UserScoreRequest	1	"request"
-//	@Success		200		{object}	http.ResponseData		"请求成功"
+//	@Success		200		{object}	handler.ResponseData	"请求成功"
 //	@Router			/v1/userScore/update [POST]
 func (p *UserScoreSrv) Update(c *gin.Context) {
 	var err error

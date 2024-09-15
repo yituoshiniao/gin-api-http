@@ -1,6 +1,6 @@
 package dto
 
-import "github.com/yituoshiniao/gin-api-http/internal/api/http"
+import "github.com/yituoshiniao/gin-api-http/internal/handler"
 
 // PurchaseConListRequest 价格配置列表request
 type PurchaseConListRequest struct {
@@ -13,7 +13,7 @@ type PurchaseConListRequest struct {
 
 // PurchaseConListResponse 价格配置列表response
 type PurchaseConListResponse struct {
-	http.ResponseData
+	handler.ResponseData
 	Data []PurchaseConList
 }
 
