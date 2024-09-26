@@ -84,7 +84,7 @@ func main() {
 		log.Fatalln("get tables info fail:", err)
 	}
 
-	// false 指生成model,不生成query文件; true 全都生成
+	// false 只生成model,不生成query文件; true 全都生成
 	onlyModel := true
 	if onlyModel {
 		g.ApplyBasic(models...)
