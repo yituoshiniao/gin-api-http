@@ -11,7 +11,6 @@ require (
 	github.com/alibaba/sentinel-golang v1.0.4
 	github.com/allegro/bigcache v1.2.1
 	github.com/avast/retry-go v2.7.0+incompatible
-	github.com/awa/go-iap v1.21.1
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/dghubble/sling v1.4.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -19,7 +18,6 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/go-acme/lego/v3 v3.4.0
 	github.com/go-kit/kit v0.10.0
 	github.com/go-playground/locales v0.14.1
 	github.com/go-playground/universal-translator v0.18.1
@@ -41,11 +39,11 @@ require (
 	github.com/spf13/viper v1.7.1
 	github.com/swaggo/files v1.0.1
 	github.com/swaggo/gin-swagger v1.6.0
+	github.com/swaggo/swag v1.16.3
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	github.com/yituoshiniao/kit v0.3.6
 	github.com/yituoshiniao/openapi-client-go v0.0.0-20240510083236-d6f077500130
 	go.uber.org/zap v1.25.0
-	google.golang.org/grpc v1.58.2
 	gorm.io/driver/mysql v1.5.1
 	gorm.io/gen v0.3.23
 	gorm.io/gorm v1.25.4
@@ -75,7 +73,6 @@ require (
 	github.com/go-redis/redis/v8 v8.11.4 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/glog v1.1.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -109,7 +106,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
-	github.com/swaggo/swag v1.16.3 // indirect
 	github.com/t-tiger/gorm-bulk-insert/v2 v2.1.0 // indirect
 	github.com/tchap/zapext v1.0.0 // indirect
 	github.com/tinylib/msgp v1.1.6 // indirect
@@ -129,6 +125,7 @@ require (
 	golang.org/x/text v0.15.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
 	golang.org/x/tools v0.21.0 // indirect
+	google.golang.org/grpc v1.58.2 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/ini.v1 v1.51.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

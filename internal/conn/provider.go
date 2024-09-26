@@ -16,7 +16,6 @@ var WireSet = wire.NewSet(
 	NewWxClient,
 	NewHttpClient,
 	NewRetry,
-	NewIapStoreClient,
 	asynq.NewAsynqClient,
 	asynq.NewAsynqSchedulerctx,
 	asynq.NewAsynqServeMux,

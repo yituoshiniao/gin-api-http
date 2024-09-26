@@ -54,7 +54,7 @@ func main() {
 	}
 
 	app.Start(app.Ctx, srv, commandTaskName)
-	app.SyncTaskStart(app.Ctx) // asyncTask 异步任务 跟进需要是否启动使用
+	// app.SyncTaskStart(app.Ctx) // asyncTask 异步任务 根据需要是否启动使用
 
 	// app.System(app.Ctx)
 	app.Stop(srv)

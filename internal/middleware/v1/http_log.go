@@ -7,14 +7,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/onsi/gomega/gbytes"
 	"github.com/opentracing/opentracing-go"
 	"github.com/pquerna/ffjson/ffjson"
 	"github.com/uber/jaeger-client-go"
 	"github.com/yituoshiniao/kit/xlog"
-	"google.golang.org/grpc/metadata"
-
-	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
 
@@ -70,14 +68,15 @@ func HTTPLog(ctx *gin.Context) {
 	blw := &CustomResponseWriter{body: bytes.NewBufferString(""), ResponseWriter: ctx.Writer}
 	ctx.Writer = blw
 
-	grayVersion := ctx.GetHeader(HeaderGrayVersion)
-	if "" != grayVersion {
-		ctx2 := metadata.NewOutgoingContext(
-			ctx.Request.Context(),
-			metadata.Pairs(HeaderGrayVersion, grayVersion),
-		)
-		ctx.Request = ctx.Request.WithContext(ctx2)
-	}
+	//	注入grpc 上下文信息
+	// grayVersion := ctx.GetHeader(HeaderGrayVersion)
+	// if "" != grayVersion {
+	// 	ctx2 := metadata.NewOutgoingContext(
+	// 		ctx.Request.Context(),
+	// 		metadata.Pairs(HeaderGrayVersion, grayVersion),
+	// 	)
+	// 	ctx.Request = ctx.Request.WithContext(ctx2)
+	// }
 
 	// 处理请求
 	ctx.Next()

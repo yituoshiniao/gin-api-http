@@ -1,13 +1,8 @@
 package middleware
 
 import (
-	"io"
-	"os"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/go-acme/lego/v3/log"
-
 	"github.com/yituoshiniao/gin-api-http/config"
 	"github.com/yituoshiniao/gin-api-http/internal/metrics"
 	v12 "github.com/yituoshiniao/gin-api-http/internal/middleware/v1"
@@ -31,26 +26,4 @@ func InitMiddleware(r *gin.Engine, cfg config.Config, counterMetrics *metrics.Co
 		cors.Default(), // gin 官方跨域中间件
 
 	)
-}
-
-// FileAndStdoutWriter 返回多个writer(文件和标准输出)
-func FileAndStdoutWriter() (wri io.Writer, file *os.File) {
-	// 创建日志文件
-	f, err := os.OpenFile("test.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-
-	// 完成后，延迟关闭
-	// defer f.Close()
-
-	// 设置日志输出到文件
-	// 定义多个写入器
-	writers := []io.Writer{
-		f,
-		// os.Stdout,
-	}
-	fileAndStdoutWriter := io.MultiWriter(writers...)
-	return fileAndStdoutWriter, f
 }
