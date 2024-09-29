@@ -22,7 +22,7 @@ func Metrics(counterMetrics *metrics.CounterMetrics, summaryMetrics *metrics.Sum
 		go func() {
 			defer func() {
 				if err := recover(); err != nil {
-					xlog.S(ctx.Request.Context()).Errorw("gin handler Metrics错误", "err", err)
+					xlog.S(ctx.Request.Context()).Errorw("gin http Metrics错误", "err", err)
 				}
 			}()
 

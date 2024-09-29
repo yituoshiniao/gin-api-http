@@ -20,7 +20,7 @@ func NewSummaryMetrics() *SummaryMetrics {
 	return &SummaryMetrics{
 		HttpRequestApiSummary: promauto.NewSummaryVec(prometheus.SummaryOpts{
 			Name: "http_request_api_duration",
-			Help: "handler request api duration",
+			Help: "http request api duration",
 			Objectives: map[float64]float64{
 				0.5:  0.05,  // 第50个百分位数，最大绝对误差为0.05。
 				0.7:  0.03,  // 第70个百分位数，最大绝对误差为0.03。

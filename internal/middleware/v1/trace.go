@@ -33,13 +33,13 @@ func OpenTracing() gin.HandlerFunc {
 		// 记录组件名称
 		ext.Component.Set(serverSpan, "Gin-Http")
 		// 自定义 Tag X-Forwarded-For
-		opentracing.Tag{Key: "handler.headers.x-forwarded-for", Value: c.Request.Header.Get("X-Forwarded-For")}.Set(serverSpan)
+		opentracing.Tag{Key: "http.headers.x-forwarded-for", Value: c.Request.Header.Get("X-Forwarded-For")}.Set(serverSpan)
 		// 自定义 Tag User-Agent
-		opentracing.Tag{Key: "handler.headers.user-agent", Value: c.Request.Header.Get("User-Agent")}.Set(serverSpan)
+		opentracing.Tag{Key: "http.headers.user-agent", Value: c.Request.Header.Get("User-Agent")}.Set(serverSpan)
 		// 自定义 Tag Request-Time
 		opentracing.Tag{Key: "request.time", Value: time.Now().Format(time.RFC3339)}.Set(serverSpan)
 		// 自定义 Tag Server-Mode
-		opentracing.Tag{Key: "handler.server.mode", Value: gin.Mode()}.Set(serverSpan)
+		opentracing.Tag{Key: "http.server.mode", Value: gin.Mode()}.Set(serverSpan)
 
 		c.Request = c.Request.WithContext(opentracing.ContextWithSpan(c.Request.Context(), serverSpan))
 
