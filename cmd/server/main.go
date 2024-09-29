@@ -25,11 +25,11 @@ func init() {
 	flag.StringVar(&commandTaskName, "commandTaskName", "", "命令模式启动需要传入要执行的任务名字,不传就以默认方式启动")
 }
 
-// @title			gin-handler API
+// @title			gin-http API
 // @version		1.0
 // @description	gin-http服务文档
 // @host			127.0.0.1:3013
-// @schemes		handler
+// @schemes		http
 // @BasePath		/goodsCenterLogic
 func main() {
 	err := app2.InitTimeZone()

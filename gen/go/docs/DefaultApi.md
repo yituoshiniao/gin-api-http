@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## V1CommonGenerateIdGet
 
-> InternalApiHttpServicev1HttpGenerateIDResponse V1CommonGenerateIdGet(ctx, id).Num(num).Authorization(authorization).Execute()
+> InternalHandlerServicev1HttpGenerateIDResponse V1CommonGenerateIdGet(ctx, id).Num(num).Authorization(authorization).Execute()
 
 雪花ID生成
 
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.V1CommonGenerateIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1CommonGenerateIdGet`: InternalApiHttpServicev1HttpGenerateIDResponse
+	// response from `V1CommonGenerateIdGet`: InternalHandlerServicev1HttpGenerateIDResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultApi.V1CommonGenerateIdGet`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InternalApiHttpServicev1HttpGenerateIDResponse**](InternalApiHttpServicev1HttpGenerateIDResponse.md)
+[**InternalHandlerServicev1HttpGenerateIDResponse**](InternalHandlerServicev1HttpGenerateIDResponse.md)
 
 ### Authorization
 

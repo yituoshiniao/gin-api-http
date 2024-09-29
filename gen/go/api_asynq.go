@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -54,7 +54,7 @@ func (a *AsynqAPIService) AsynqV1AddAggTaskGet(ctx context.Context) ApiAsynqV1Ad
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoGroupDeliveryTaskAddResponse
+//  @return InternalApiDtoGroupDeliveryTaskAddResponse
 func (a *AsynqAPIService) AsynqV1AddAggTaskGetExecute(r ApiAsynqV1AddAggTaskGetRequest) (*InternalApiDtoGroupDeliveryTaskAddResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -75,7 +75,7 @@ func (a *AsynqAPIService) AsynqV1AddAggTaskGetExecute(r ApiAsynqV1AddAggTaskGetR
 	localVarFormParams := url.Values{}
 
 	if r.env != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -163,7 +163,7 @@ func (a *AsynqAPIService) AsynqV1AddTaskGet(ctx context.Context) ApiAsynqV1AddTa
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoAsynqEmailDeliveryTaskAddResponse
+//  @return InternalApiDtoAsynqEmailDeliveryTaskAddResponse
 func (a *AsynqAPIService) AsynqV1AddTaskGetExecute(r ApiAsynqV1AddTaskGetRequest) (*InternalApiDtoAsynqEmailDeliveryTaskAddResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -184,7 +184,7 @@ func (a *AsynqAPIService) AsynqV1AddTaskGetExecute(r ApiAsynqV1AddTaskGetRequest
 	localVarFormParams := url.Values{}
 
 	if r.env != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

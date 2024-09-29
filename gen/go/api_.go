@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -43,7 +43,7 @@ func (r ApiV1CommonGenerateIdGetRequest) Authorization(authorization string) Api
 	return r
 }
 
-func (r ApiV1CommonGenerateIdGetRequest) Execute() (*InternalApiHttpServicev1HttpGenerateIDResponse, *http.Response, error) {
+func (r ApiV1CommonGenerateIdGetRequest) Execute() (*InternalHandlerServicev1HttpGenerateIDResponse, *http.Response, error) {
 	return r.ApiService.V1CommonGenerateIdGetExecute(r)
 }
 
@@ -65,13 +65,13 @@ func (a *DefaultApiService) V1CommonGenerateIdGet(ctx context.Context, id int32)
 }
 
 // Execute executes the request
-//	@return	InternalApiHttpServicev1HttpGenerateIDResponse
-func (a *DefaultApiService) V1CommonGenerateIdGetExecute(r ApiV1CommonGenerateIdGetRequest) (*InternalApiHttpServicev1HttpGenerateIDResponse, *http.Response, error) {
+//  @return InternalHandlerServicev1HttpGenerateIDResponse
+func (a *DefaultApiService) V1CommonGenerateIdGetExecute(r ApiV1CommonGenerateIdGetRequest) (*InternalHandlerServicev1HttpGenerateIDResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InternalApiHttpServicev1HttpGenerateIDResponse
+		localVarReturnValue  *InternalHandlerServicev1HttpGenerateIDResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.V1CommonGenerateIdGet")
@@ -89,7 +89,7 @@ func (a *DefaultApiService) V1CommonGenerateIdGetExecute(r ApiV1CommonGenerateId
 		return localVarReturnValue, nil, reportError("num is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "num", r.num, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "num", r.num, "", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -108,7 +108,7 @@ func (a *DefaultApiService) V1CommonGenerateIdGetExecute(r ApiV1CommonGenerateId
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

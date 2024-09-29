@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -27,7 +27,7 @@ type ApiV1UserScoreAddPostRequest struct {
 	ApiService *UserScoreAPIService
 }
 
-func (r ApiV1UserScoreAddPostRequest) Execute() (*InternalApiHttpResponseData, *http.Response, error) {
+func (r ApiV1UserScoreAddPostRequest) Execute() (*InternalHandlerResponseData, *http.Response, error) {
 	return r.ApiService.V1UserScoreAddPostExecute(r)
 }
 
@@ -47,13 +47,13 @@ func (a *UserScoreAPIService) V1UserScoreAddPost(ctx context.Context) ApiV1UserS
 }
 
 // Execute executes the request
-//	@return	InternalApiHttpResponseData
-func (a *UserScoreAPIService) V1UserScoreAddPostExecute(r ApiV1UserScoreAddPostRequest) (*InternalApiHttpResponseData, *http.Response, error) {
+//  @return InternalHandlerResponseData
+func (a *UserScoreAPIService) V1UserScoreAddPostExecute(r ApiV1UserScoreAddPostRequest) (*InternalHandlerResponseData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InternalApiHttpResponseData
+		localVarReturnValue  *InternalHandlerResponseData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserScoreAPIService.V1UserScoreAddPost")
@@ -126,7 +126,7 @@ type ApiV1UserScoreDelPostRequest struct {
 	ApiService *UserScoreAPIService
 }
 
-func (r ApiV1UserScoreDelPostRequest) Execute() (*InternalApiHttpResponseData, *http.Response, error) {
+func (r ApiV1UserScoreDelPostRequest) Execute() (*InternalHandlerResponseData, *http.Response, error) {
 	return r.ApiService.V1UserScoreDelPostExecute(r)
 }
 
@@ -146,13 +146,13 @@ func (a *UserScoreAPIService) V1UserScoreDelPost(ctx context.Context) ApiV1UserS
 }
 
 // Execute executes the request
-//	@return	InternalApiHttpResponseData
-func (a *UserScoreAPIService) V1UserScoreDelPostExecute(r ApiV1UserScoreDelPostRequest) (*InternalApiHttpResponseData, *http.Response, error) {
+//  @return InternalHandlerResponseData
+func (a *UserScoreAPIService) V1UserScoreDelPostExecute(r ApiV1UserScoreDelPostRequest) (*InternalHandlerResponseData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InternalApiHttpResponseData
+		localVarReturnValue  *InternalHandlerResponseData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserScoreAPIService.V1UserScoreDelPost")
@@ -245,7 +245,7 @@ func (a *UserScoreAPIService) V1UserScoreFindGet(ctx context.Context) ApiV1UserS
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoUserScoreFindResponse
+//  @return InternalApiDtoUserScoreFindResponse
 func (a *UserScoreAPIService) V1UserScoreFindGetExecute(r ApiV1UserScoreFindGetRequest) (*InternalApiDtoUserScoreFindResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -344,7 +344,7 @@ func (a *UserScoreAPIService) V1UserScoreListGet(ctx context.Context) ApiV1UserS
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoUserScoreListResponse
+//  @return InternalApiDtoUserScoreListResponse
 func (a *UserScoreAPIService) V1UserScoreListGetExecute(r ApiV1UserScoreListGetRequest) (*InternalApiDtoUserScoreListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -423,7 +423,7 @@ type ApiV1UserScoreUpdatePostRequest struct {
 	ApiService *UserScoreAPIService
 }
 
-func (r ApiV1UserScoreUpdatePostRequest) Execute() (*InternalApiHttpResponseData, *http.Response, error) {
+func (r ApiV1UserScoreUpdatePostRequest) Execute() (*InternalHandlerResponseData, *http.Response, error) {
 	return r.ApiService.V1UserScoreUpdatePostExecute(r)
 }
 
@@ -443,13 +443,13 @@ func (a *UserScoreAPIService) V1UserScoreUpdatePost(ctx context.Context) ApiV1Us
 }
 
 // Execute executes the request
-//	@return	InternalApiHttpResponseData
-func (a *UserScoreAPIService) V1UserScoreUpdatePostExecute(r ApiV1UserScoreUpdatePostRequest) (*InternalApiHttpResponseData, *http.Response, error) {
+//  @return InternalHandlerResponseData
+func (a *UserScoreAPIService) V1UserScoreUpdatePostExecute(r ApiV1UserScoreUpdatePostRequest) (*InternalHandlerResponseData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InternalApiHttpResponseData
+		localVarReturnValue  *InternalHandlerResponseData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserScoreAPIService.V1UserScoreUpdatePost")

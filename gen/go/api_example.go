@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -68,7 +68,7 @@ func (a *ExampleAPIService) V1ExampleGetGet(ctx context.Context) ApiV1ExampleGet
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoExampleGetResponse
+//  @return InternalApiDtoExampleGetResponse
 func (a *ExampleAPIService) V1ExampleGetGetExecute(r ApiV1ExampleGetGetRequest) (*InternalApiDtoExampleGetResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -97,9 +97,9 @@ func (a *ExampleAPIService) V1ExampleGetGetExecute(r ApiV1ExampleGetGetRequest) 
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "create_time", r.createTime, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query_id", r.queryId, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "create_time", r.createTime, "", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query_id", r.queryId, "", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -200,7 +200,7 @@ func (a *ExampleAPIService) V1ExampleGetOneGet(ctx context.Context) ApiV1Example
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoExampleGetOneResponse
+//  @return InternalApiDtoExampleGetOneResponse
 func (a *ExampleAPIService) V1ExampleGetOneGetExecute(r ApiV1ExampleGetOneGetRequest) (*InternalApiDtoExampleGetOneResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -229,9 +229,9 @@ func (a *ExampleAPIService) V1ExampleGetOneGetExecute(r ApiV1ExampleGetOneGetReq
 		return localVarReturnValue, nil, reportError("userId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "create_time", r.createTime, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query_id", r.queryId, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "create_time", r.createTime, "", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query_id", r.queryId, "", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "user_id", r.userId, "", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -326,7 +326,7 @@ func (a *ExampleAPIService) V1ExamplePostPost(ctx context.Context) ApiV1ExampleP
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoExamplePostResponse
+//  @return InternalApiDtoExamplePostResponse
 func (a *ExampleAPIService) V1ExamplePostPostExecute(r ApiV1ExamplePostPostRequest) (*InternalApiDtoExamplePostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost

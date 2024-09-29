@@ -1,11 +1,11 @@
 {
     "schemes": [
-        "handler"
+        "http"
     ],
     "swagger": "2.0",
     "info": {
         "description": "gin-http服务文档",
-        "title": "gin-handler API",
+        "title": "gin-http API",
         "contact": {},
         "version": "1.0"
     },

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1UserScoreAddPost
 
-> InternalApiHttpResponseData V1UserScoreAddPost(ctx).Execute()
+> InternalHandlerResponseData V1UserScoreAddPost(ctx).Execute()
 
 添加数据
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UserScoreAPI.V1UserScoreAddPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1UserScoreAddPost`: InternalApiHttpResponseData
+	// response from `V1UserScoreAddPost`: InternalHandlerResponseData
 	fmt.Fprintf(os.Stdout, "Response from `UserScoreAPI.V1UserScoreAddPost`: %v\n", resp)
 }
 ```
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiV1UserScoreAddPostRequest 
 
 ### Return type
 
-[**InternalApiHttpResponseData**](InternalApiHttpResponseData.md)
+[**InternalHandlerResponseData**](InternalHandlerResponseData.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 
 ## V1UserScoreDelPost
 
-> InternalApiHttpResponseData V1UserScoreDelPost(ctx).Execute()
+> InternalHandlerResponseData V1UserScoreDelPost(ctx).Execute()
 
 删除数据
 
@@ -102,7 +102,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UserScoreAPI.V1UserScoreDelPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1UserScoreDelPost`: InternalApiHttpResponseData
+	// response from `V1UserScoreDelPost`: InternalHandlerResponseData
 	fmt.Fprintf(os.Stdout, "Response from `UserScoreAPI.V1UserScoreDelPost`: %v\n", resp)
 }
 ```
@@ -118,7 +118,7 @@ Other parameters are passed through a pointer to a apiV1UserScoreDelPostRequest 
 
 ### Return type
 
-[**InternalApiHttpResponseData**](InternalApiHttpResponseData.md)
+[**InternalHandlerResponseData**](InternalHandlerResponseData.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ No authorization required
 
 ## V1UserScoreUpdatePost
 
-> InternalApiHttpResponseData V1UserScoreUpdatePost(ctx).Execute()
+> InternalHandlerResponseData V1UserScoreUpdatePost(ctx).Execute()
 
 更新数据
 
@@ -285,7 +285,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UserScoreAPI.V1UserScoreUpdatePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V1UserScoreUpdatePost`: InternalApiHttpResponseData
+	// response from `V1UserScoreUpdatePost`: InternalHandlerResponseData
 	fmt.Fprintf(os.Stdout, "Response from `UserScoreAPI.V1UserScoreUpdatePost`: %v\n", resp)
 }
 ```
@@ -301,7 +301,7 @@ Other parameters are passed through a pointer to a apiV1UserScoreUpdatePostReque
 
 ### Return type
 
-[**InternalApiHttpResponseData**](InternalApiHttpResponseData.md)
+[**InternalHandlerResponseData**](InternalHandlerResponseData.md)
 
 ### Authorization
 

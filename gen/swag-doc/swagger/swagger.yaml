@@ -306,7 +306,7 @@ host: 127.0.0.1:3013
 info:
   contact: {}
   description: gin-http服务文档
-  title: gin-handler API
+  title: gin-http API
   version: "1.0"
 paths:
   /asynq/v1/addAggTask:
@@ -538,5 +538,5 @@ paths:
       tags:
       - user_score
 schemes:
-- handler
+- http
 swagger: "2.0"

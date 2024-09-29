@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -68,7 +68,7 @@ func (a *AuthAPIService) AuthV1TokenGenerateGet(ctx context.Context) ApiAuthV1To
 }
 
 // Execute executes the request
-//	@return	InternalApiDtoAppJwtTokenSwgResponse
+//  @return InternalApiDtoAppJwtTokenSwgResponse
 func (a *AuthAPIService) AuthV1TokenGenerateGetExecute(r ApiAuthV1TokenGenerateGetRequest) (*InternalApiDtoAppJwtTokenSwgResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -95,10 +95,10 @@ func (a *AuthAPIService) AuthV1TokenGenerateGetExecute(r ApiAuthV1TokenGenerateG
 	}
 
 	if r.env != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "env", r.env, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "userName", r.userName, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "userId", r.userId, "", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "userName", r.userName, "", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

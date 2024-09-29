@@ -1,5 +1,5 @@
 /*
-gin-handler API
+gin-http API
 
 gin-http服务文档
 
@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the InternalApiHttpResponseData type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &InternalApiHttpResponseData{}
+// checks if the InternalHandlerResponseData type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InternalHandlerResponseData{}
 
-// InternalApiHttpResponseData struct for InternalApiHttpResponseData
-type InternalApiHttpResponseData struct {
+// InternalHandlerResponseData struct for InternalHandlerResponseData
+type InternalHandlerResponseData struct {
 	// code:  0 成功; 非0失败;
 	Code int32 `json:"code"`
 	// 数据data
@@ -31,14 +31,14 @@ type InternalApiHttpResponseData struct {
 	TraceId string `json:"traceId"`
 }
 
-type _InternalApiHttpResponseData InternalApiHttpResponseData
+type _InternalHandlerResponseData InternalHandlerResponseData
 
-// NewInternalApiHttpResponseData instantiates a new InternalApiHttpResponseData object
+// NewInternalHandlerResponseData instantiates a new InternalHandlerResponseData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInternalApiHttpResponseData(code int32, data map[string]interface{}, msg string, traceId string) *InternalApiHttpResponseData {
-	this := InternalApiHttpResponseData{}
+func NewInternalHandlerResponseData(code int32, data map[string]interface{}, msg string, traceId string) *InternalHandlerResponseData {
+	this := InternalHandlerResponseData{}
 	this.Code = code
 	this.Data = data
 	this.Msg = msg
@@ -46,16 +46,16 @@ func NewInternalApiHttpResponseData(code int32, data map[string]interface{}, msg
 	return &this
 }
 
-// NewInternalApiHttpResponseDataWithDefaults instantiates a new InternalApiHttpResponseData object
+// NewInternalHandlerResponseDataWithDefaults instantiates a new InternalHandlerResponseData object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInternalApiHttpResponseDataWithDefaults() *InternalApiHttpResponseData {
-	this := InternalApiHttpResponseData{}
+func NewInternalHandlerResponseDataWithDefaults() *InternalHandlerResponseData {
+	this := InternalHandlerResponseData{}
 	return &this
 }
 
 // GetCode returns the Code field value
-func (o *InternalApiHttpResponseData) GetCode() int32 {
+func (o *InternalHandlerResponseData) GetCode() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -66,7 +66,7 @@ func (o *InternalApiHttpResponseData) GetCode() int32 {
 
 // GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
-func (o *InternalApiHttpResponseData) GetCodeOk() (*int32, bool) {
+func (o *InternalHandlerResponseData) GetCodeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,12 +74,12 @@ func (o *InternalApiHttpResponseData) GetCodeOk() (*int32, bool) {
 }
 
 // SetCode sets field value
-func (o *InternalApiHttpResponseData) SetCode(v int32) {
+func (o *InternalHandlerResponseData) SetCode(v int32) {
 	o.Code = v
 }
 
 // GetData returns the Data field value
-func (o *InternalApiHttpResponseData) GetData() map[string]interface{} {
+func (o *InternalHandlerResponseData) GetData() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -90,7 +90,7 @@ func (o *InternalApiHttpResponseData) GetData() map[string]interface{} {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *InternalApiHttpResponseData) GetDataOk() (map[string]interface{}, bool) {
+func (o *InternalHandlerResponseData) GetDataOk() (map[string]interface{}, bool) {
 	if o == nil {
 		return map[string]interface{}{}, false
 	}
@@ -98,12 +98,12 @@ func (o *InternalApiHttpResponseData) GetDataOk() (map[string]interface{}, bool)
 }
 
 // SetData sets field value
-func (o *InternalApiHttpResponseData) SetData(v map[string]interface{}) {
+func (o *InternalHandlerResponseData) SetData(v map[string]interface{}) {
 	o.Data = v
 }
 
 // GetMsg returns the Msg field value
-func (o *InternalApiHttpResponseData) GetMsg() string {
+func (o *InternalHandlerResponseData) GetMsg() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -114,7 +114,7 @@ func (o *InternalApiHttpResponseData) GetMsg() string {
 
 // GetMsgOk returns a tuple with the Msg field value
 // and a boolean to check if the value has been set.
-func (o *InternalApiHttpResponseData) GetMsgOk() (*string, bool) {
+func (o *InternalHandlerResponseData) GetMsgOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,12 +122,12 @@ func (o *InternalApiHttpResponseData) GetMsgOk() (*string, bool) {
 }
 
 // SetMsg sets field value
-func (o *InternalApiHttpResponseData) SetMsg(v string) {
+func (o *InternalHandlerResponseData) SetMsg(v string) {
 	o.Msg = v
 }
 
 // GetTraceId returns the TraceId field value
-func (o *InternalApiHttpResponseData) GetTraceId() string {
+func (o *InternalHandlerResponseData) GetTraceId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -138,7 +138,7 @@ func (o *InternalApiHttpResponseData) GetTraceId() string {
 
 // GetTraceIdOk returns a tuple with the TraceId field value
 // and a boolean to check if the value has been set.
-func (o *InternalApiHttpResponseData) GetTraceIdOk() (*string, bool) {
+func (o *InternalHandlerResponseData) GetTraceIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,11 +146,11 @@ func (o *InternalApiHttpResponseData) GetTraceIdOk() (*string, bool) {
 }
 
 // SetTraceId sets field value
-func (o *InternalApiHttpResponseData) SetTraceId(v string) {
+func (o *InternalHandlerResponseData) SetTraceId(v string) {
 	o.TraceId = v
 }
 
-func (o InternalApiHttpResponseData) MarshalJSON() ([]byte, error) {
+func (o InternalHandlerResponseData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -158,7 +158,7 @@ func (o InternalApiHttpResponseData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InternalApiHttpResponseData) ToMap() (map[string]interface{}, error) {
+func (o InternalHandlerResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
 	toSerialize["data"] = o.Data
@@ -167,7 +167,7 @@ func (o InternalApiHttpResponseData) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *InternalApiHttpResponseData) UnmarshalJSON(data []byte) (err error) {
+func (o *InternalHandlerResponseData) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -192,53 +192,53 @@ func (o *InternalApiHttpResponseData) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varInternalApiHttpResponseData := _InternalApiHttpResponseData{}
+	varInternalHandlerResponseData := _InternalHandlerResponseData{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInternalApiHttpResponseData)
+	err = decoder.Decode(&varInternalHandlerResponseData)
 
 	if err != nil {
 		return err
 	}
 
-	*o = InternalApiHttpResponseData(varInternalApiHttpResponseData)
+	*o = InternalHandlerResponseData(varInternalHandlerResponseData)
 
 	return err
 }
 
-type NullableInternalApiHttpResponseData struct {
-	value *InternalApiHttpResponseData
+type NullableInternalHandlerResponseData struct {
+	value *InternalHandlerResponseData
 	isSet bool
 }
 
-func (v NullableInternalApiHttpResponseData) Get() *InternalApiHttpResponseData {
+func (v NullableInternalHandlerResponseData) Get() *InternalHandlerResponseData {
 	return v.value
 }
 
-func (v *NullableInternalApiHttpResponseData) Set(val *InternalApiHttpResponseData) {
+func (v *NullableInternalHandlerResponseData) Set(val *InternalHandlerResponseData) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInternalApiHttpResponseData) IsSet() bool {
+func (v NullableInternalHandlerResponseData) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInternalApiHttpResponseData) Unset() {
+func (v *NullableInternalHandlerResponseData) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInternalApiHttpResponseData(val *InternalApiHttpResponseData) *NullableInternalApiHttpResponseData {
-	return &NullableInternalApiHttpResponseData{value: val, isSet: true}
+func NewNullableInternalHandlerResponseData(val *InternalHandlerResponseData) *NullableInternalHandlerResponseData {
+	return &NullableInternalHandlerResponseData{value: val, isSet: true}
 }
 
-func (v NullableInternalApiHttpResponseData) MarshalJSON() ([]byte, error) {
+func (v NullableInternalHandlerResponseData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInternalApiHttpResponseData) UnmarshalJSON(src []byte) error {
+func (v *NullableInternalHandlerResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
